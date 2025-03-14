@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreeWiFi</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: #007BFF;
+      color: #fff;
+      padding: 1rem 0;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a.button {
+      background: #0056b3;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: #f4f4f4;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero .button {
+      background: #007BFF;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    /* Sections */
+    section {
+      padding: 2rem 0;
+    }
+
+    section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Dark Theme */
+    body.dark-theme {
+      background: #121212;
+      color: #ffffff;
+    }
+
+    body.dark-theme header {
+      background: #1f1f1f;
+    }
+
+    body.dark-theme .hero {
+      background: #1f1f1f;
+      color: #ffffff;
+    }
+
+    body.dark-theme footer {
+      background: #000000;
+    }
+
+    /* Hidden Sections */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="light-theme">
+  <header>
+    <div class="container">
+      <h1>FreeWiFi</h1>
+      <nav>
+        <ul>
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#coverage" class="nav-link">Coverage</a></li>
+          <li><a href="#support" class="nav-link">Support</a></li>
+          <li><a href="#login" class="button nav-link">Login</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <!-- Home Page -->
+  <section id="home" class="page active">
+    <div class="hero">
+      <div class="container">
+        <h2>Get Connected Anywhere, Anytime</h2>
+        <p>Enjoy fast, reliable, and completely free Wi-Fi access in thousands of locations worldwide.</p>
+        <a href="#coverage" class="button">Find Hotspots</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Page -->
+  <section id="about" class="page">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>FreeWiFi is a global initiative to provide free internet access to everyone. Founded in 2020, we have expanded to over 50 countries, offering seamless connectivity in public spaces, cafes, and transportation hubs.</p>
+    </div>
+  </section>
+
+  <!-- Coverage Page -->
+  <section id="coverage" class="page">
+    <div class="container">
+      <h2>Coverage Map</h2>
+      <p>Check out our interactive map to find FreeWiFi hotspots near you. We’re constantly expanding our network to serve you better.</p>
+      <div class="map-placeholder">
+        <p>Map Loading...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Page -->
+  <section id="support" class="page">
+    <div class="container">
+      <h2>Support</h2>
+      <p>Need help connecting? Visit our support page or contact us at <a href="mailto:freewifisupport@freewifi.com">freewifisupport@freewifi.com</a>. Our team is available 24/7 to assist you.</p>
+    </div>
+  </section>
+
+  <!-- Login Page -->
+  <section id="login" class="page">
+    <div class="container">
+      <h2>Login</h2>
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Privacy Policy Page -->
+  <section id="privacy" class="page">
+    <div class="container">
+      <h2>Privacy Policy</h2>
+      <p>Your privacy is important to us. This policy explains how we handle your data.</p>
+    </div>
+  </section>
+
+  <!-- Terms of Service Page -->
+  <section id="terms" class="page">
+    <div class="container">
+      <h2>Terms of Service</h2>
+      <p>By using FreeWiFi, you agree to our terms and conditions.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 FreeWiFi. All rights reserved.</p>
+      <ul>
+        <li><a href="#privacy" class="nav-link">Privacy Policy</a></li>
+        <li><a href="#terms" class="nav-link">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      const isDarkTheme = body.classList.contains('dark-theme');
+      themeToggle.textContent = isDarkTheme ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    });
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-theme');
+      themeToggle.textContent = '☀️';
+    } else {
+      body.classList.remove('dark-theme');
+      themeToggle.textContent = '🌙';
+    }
+
+    // Page Navigation
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        pages.forEach(page => {
+          page.classList.remove('active');
+          if (page.id === targetId) {
+            page.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
