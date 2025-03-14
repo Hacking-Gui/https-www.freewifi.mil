@@ -25,6 +25,7 @@
       background: #007BFF;
       color: #fff;
       padding: 1rem 0;
+      transition: background 0.3s;
     }
 
     header h1 {
@@ -43,12 +44,14 @@
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
 
     nav a.button {
       background: #0056b3;
       padding: 0.5rem 1rem;
       border-radius: 5px;
+      transition: background 0.3s;
     }
 
     #theme-select {
@@ -58,17 +61,19 @@
       padding: 0.5rem;
       border-radius: 5px;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
     /* Hero Section */
     .hero {
       background: #f4f4f4;
-      padding: 2rem 0;
+      padding: 4rem 0;
       text-align: center;
+      transition: background 0.3s, color 0.3s;
     }
 
     .hero h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
@@ -83,6 +88,11 @@
       padding: 0.75rem 1.5rem;
       border-radius: 5px;
       text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .hero .button:hover {
+      background: #0056b3;
     }
 
     /* Sections */
@@ -102,6 +112,7 @@
       padding: 1rem 0;
       text-align: center;
       position: relative;
+      transition: background 0.3s;
     }
 
     footer ul {
@@ -116,6 +127,7 @@
     footer a {
       color: #fff;
       text-decoration: none;
+      transition: color 0.3s;
     }
 
     footer p {
@@ -133,6 +145,11 @@
       border-radius: 5px;
       text-decoration: none;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s;
+    }
+
+    .download-button:hover {
+      background: #0056b3;
     }
 
     /* Dark Theme */
@@ -152,6 +169,44 @@
 
     body.dark-theme footer {
       background: #000000;
+    }
+
+    /* Orange Theme */
+    body.orange-theme {
+      background: #fff3e0;
+      color: #333;
+    }
+
+    body.orange-theme header {
+      background: #ff9800;
+    }
+
+    body.orange-theme .hero {
+      background: #ffe0b2;
+      color: #333;
+    }
+
+    body.orange-theme footer {
+      background: #f57c00;
+    }
+
+    /* Blue Theme */
+    body.blue-theme {
+      background: #e3f2fd;
+      color: #333;
+    }
+
+    body.blue-theme header {
+      background: #2196f3;
+    }
+
+    body.blue-theme .hero {
+      background: #bbdefb;
+      color: #333;
+    }
+
+    body.blue-theme footer {
+      background: #1976d2;
     }
 
     /* Hidden Sections */
@@ -181,6 +236,8 @@
         <option value="system">System Default</option>
         <option value="light">Light Mode</option>
         <option value="dark">Dark Mode</option>
+        <option value="orange">Orange Theme</option>
+        <option value="blue">Blue Theme</option>
       </select>
     </div>
   </header>
@@ -265,7 +322,7 @@
   </footer>
 
   <!-- Download Button -->
-  <a href="#" class="download-button">Download App</a>
+  <a href="https://app.mediafire.com/u6dotwevfhkl6" class="download-button">Download App</a>
 
   <script>
     // Theme Switcher
@@ -278,7 +335,7 @@
 
     themeSelect.addEventListener('change', () => {
       const selectedTheme = themeSelect.value;
-      body.classList.remove('system-theme', 'light-theme', 'dark-theme');
+      body.classList.remove('system-theme', 'light-theme', 'dark-theme', 'orange-theme', 'blue-theme');
       if (selectedTheme === 'system') {
         body.classList.add(systemTheme === 'dark' ? 'dark-theme' : 'light-theme');
       } else {
