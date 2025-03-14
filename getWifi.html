@@ -3,63 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FreeWiFi - Connect Anywhere, Anytime</title>
+  <title>FreeWiFi - Home</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-<body>
+<body class="light-theme">
   <header>
     <div class="container">
       <h1>FreeWiFi</h1>
       <nav>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#coverage">Coverage</a></li>
-          <li><a href="#support">Support</a></li>
-          <li><a href="#login" class="button">Login</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="coverage.html">Coverage</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="login.html" class="button">Login</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle">🌙</button>
     </div>
   </header>
 
-  <section id="home" class="hero">
+  <section class="hero">
     <div class="container">
       <h2>Get Connected Anywhere, Anytime</h2>
       <p>Enjoy fast, reliable, and completely free Wi-Fi access in thousands of locations worldwide.</p>
-      <a href="#coverage" class="button">Find Hotspots</a>
-    </div>
-  </section>
-
-  <section id="about" class="about">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>FreeWiFi is a global initiative to provide free internet access to everyone. Founded in 2020, we have expanded to over 50 countries, offering seamless connectivity in public spaces, cafes, and transportation hubs.</p>
-    </div>
-  </section>
-
-  <section id="coverage" class="coverage">
-    <div class="container">
-      <h2>Coverage Map</h2>
-      <p>Check out our interactive map to find FreeWiFi hotspots near you. We’re constantly expanding our network to serve you better.</p>
-      <div class="map-placeholder">
-        <p>Map Loading...</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="support" class="support">
-    <div class="container">
-      <h2>Support</h2>
-      <p>Need help connecting? Visit our support page or contact us at <a href="mailto:support@freewifi.com">support@freewifi.com</a>. Our team is available 24/7 to assist you.</p>
+      <a href="coverage.html" class="button">Find Hotspots</a>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>&copy; 2023 FreeWiFi. All rights reserved.</p>
+      <p>&copy; 2025 FreeWiFi. All rights reserved.</p>
       <ul>
-        <li><a href="#privacy">Privacy Policy</a></li>
-        <li><a href="#terms">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
       </ul>
     </div>
   </footer>
