@@ -51,11 +51,12 @@
       border-radius: 5px;
     }
 
-    #theme-toggle {
-      background: none;
-      border: none;
+    #theme-select {
+      background: #0056b3;
       color: #fff;
-      font-size: 1.2rem;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 5px;
       cursor: pointer;
     }
 
@@ -100,6 +101,7 @@
       color: #fff;
       padding: 1rem 0;
       text-align: center;
+      position: relative;
     }
 
     footer ul {
@@ -108,11 +110,29 @@
       display: flex;
       justify-content: center;
       gap: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     footer a {
       color: #fff;
       text-decoration: none;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Download Button */
+    .download-button {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: #007BFF;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     /* Dark Theme */
@@ -144,7 +164,7 @@
     }
   </style>
 </head>
-<body class="light-theme">
+<body class="system-theme">
   <header>
     <div class="container">
       <h1>FreeWiFi</h1>
@@ -157,7 +177,11 @@
           <li><a href="#login" class="button nav-link">Login</a></li>
         </ul>
       </nav>
-      <button id="theme-toggle">🌙</button>
+      <select id="theme-select">
+        <option value="system">System Default</option>
+        <option value="light">Light Mode</option>
+        <option value="dark">Dark Mode</option>
+      </select>
     </div>
   </header>
 
@@ -167,7 +191,7 @@
       <div class="container">
         <h2>Get Connected Anywhere, Anytime</h2>
         <p>Enjoy fast, reliable, and completely free Wi-Fi access in thousands of locations worldwide.</p>
-        <a href="#coverage" class="button">Find Hotspots</a>
+        <a href="coverage.html" class="button">Find Hotspots</a>
       </div>
     </div>
   </section>
@@ -229,36 +253,47 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 FreeWiFi. All rights reserved.</p>
       <ul>
         <li><a href="#privacy" class="nav-link">Privacy Policy</a></li>
         <li><a href="#terms" class="nav-link">Terms of Service</a></li>
       </ul>
+      <p>&copy; 2025 FreeWiFi. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- Download Button -->
+  <a href="#" class="download-button">Download App</a>
+
   <script>
-    // Theme Toggle
-    const themeToggle = document.getElementById('theme-toggle');
+    // Theme Switcher
+    const themeSelect = document.getElementById('theme-select');
     const body = document.body;
 
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-theme');
-      const isDarkTheme = body.classList.contains('dark-theme');
-      themeToggle.textContent = isDarkTheme ? '☀️' : '🌙';
-      localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    // Set default theme to system
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    body.classList.add(systemTheme === 'dark' ? 'dark-theme' : 'light-theme');
+
+    themeSelect.addEventListener('change', () => {
+      const selectedTheme = themeSelect.value;
+      body.classList.remove('system-theme', 'light-theme', 'dark-theme');
+      if (selectedTheme === 'system') {
+        body.classList.add(systemTheme === 'dark' ? 'dark-theme' : 'light-theme');
+      } else {
+        body.classList.add(`${selectedTheme}-theme`);
+      }
+      localStorage.setItem('theme', selectedTheme);
     });
 
     // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      body.classList.add('dark-theme');
-      themeToggle.textContent = '☀️';
+    const savedTheme = localStorage.getItem('theme') || 'system';
+    themeSelect.value = savedTheme;
+    if (savedTheme === 'system') {
+      body.classList.add(systemTheme === 'dark' ? 'dark-theme' : 'light-theme');
     } else {
-      body.classList.remove('dark-theme');
-      themeToggle.textContent = '🌙';
+      body.classList.add(`${savedTheme}-theme`);
     }
 
     // Page Navigation
